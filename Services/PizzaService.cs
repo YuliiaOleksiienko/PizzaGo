@@ -9,7 +9,7 @@ namespace PizzaGo.Services
     {
         private readonly AppDbContext _context;
 
-        public PizzaService(AppDbContext context);
+        public PizzaService(AppDbContext context)
         {
             _context = context;
         }

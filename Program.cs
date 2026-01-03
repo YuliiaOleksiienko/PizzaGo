@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PizzaGo.Data;
+using PizzaGo.Services;
+using PizzaGo.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IPizzaService, PizzaService>();
 
 var app = builder.Build();
 
