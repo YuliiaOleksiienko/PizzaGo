@@ -1,9 +1,9 @@
-using PizzaGo.Models;
+using PizzaGo.DTOs.Responses;
 
 namespace PizzaGo.Services.Interfaces 
 {
     public interface IPizzaService
     {
-        Task<IEnumerable<Pizza>> GetAllPizzasAsync();
+        Task<IEnumerable<PizzaResponse>> GetAllPizzasAsync();
     }
 }
