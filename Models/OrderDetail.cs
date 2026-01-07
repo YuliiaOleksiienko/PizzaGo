@@ -1,6 +1,6 @@
 namespace PizzaGo.Models;
 
-public class Order 
+public class OrderDetail
 {
     public int id { get; set; }
     public int OrderId { get; set; }
