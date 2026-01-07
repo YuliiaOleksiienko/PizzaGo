@@ -9,6 +9,10 @@ public class AppDbContext : DbContext
 
     public DbSet<Pizza> Pizzas { get; set; }
 
+    public DbSet<Order> Orders { get; set; }
+
+    public DbSet<OrderDetail> OrderDetails { get; set;}
+
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
@@ -22,6 +26,19 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         new Pizza { Id = 5, Name = "BBQ Chicken", Price = 14.00m, Description = "Grilled chicken, red onions, and smoky BBQ sauce instead of tomato base.", ImageUrl = "" },
         new Pizza { Id = 6, Name = "Vegetarian", Price = 11.00m, Description = "Loaded with fresh bell peppers, mushrooms, olives, and red onions.", ImageUrl = "" }
     );
+
+
+    modelBuilder.Entity<OrderDetail>()
+        .HasOne(od => od.Order)
+        .WithMany(o => o.OrderDetails)
+        .HasForeignKey(od => od.OrderId);
+
+
+    modelBuilder.Entity<OrderDetail>()
+        .HasOne(od => od.Pizza)
+        .WithMany()
+        .HasForeignKey(od => od.PizzaId);
+
 }
 
 }
