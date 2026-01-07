@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace PizzaGo.Models;
 
 public class Pizza
