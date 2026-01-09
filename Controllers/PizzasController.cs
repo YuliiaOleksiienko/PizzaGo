@@ -5,10 +5,8 @@ using PizzaGo.Services.Interfaces;
 
 namespace PizzaGo.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    
-    public class PizzasController : ControllerBase
+   
+    public class PizzasController : Controller
     {
         private readonly IPizzaService _pizzaService;
 
@@ -18,10 +16,10 @@ namespace PizzaGo.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PizzaResponse>>> GetAll()
+        public async Task<IActionResult> Index()
         {
             var pizzas = await _pizzaService.GetAllPizzasAsync();
-            return Ok(pizzas);
+            return View(pizzas);
         }
     }
     
