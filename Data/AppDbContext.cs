@@ -24,7 +24,9 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         new Pizza { Id = 3, Name = "Four Cheese", Price = 13.50m, Description = "A rich blend of Parmesan, Gorgonzola, Cheddar, and Mozarella.", ImageUrl = "" },
         new Pizza { Id = 4, Name = "Hawaiian", Price = 11.50m, Description = "The controversial classic with juicy pineapple, ham, and tomato sauce.", ImageUrl = "" },
         new Pizza { Id = 5, Name = "BBQ Chicken", Price = 14.00m, Description = "Grilled chicken, red onions, and smoky BBQ sauce instead of tomato base.", ImageUrl = "" },
-        new Pizza { Id = 6, Name = "Vegetarian", Price = 11.00m, Description = "Loaded with fresh bell peppers, mushrooms, olives, and red onions.", ImageUrl = "" }
+        new Pizza { Id = 6, Name = "Vegetarian", Price = 11.00m, Description = "Loaded with fresh bell peppers, mushrooms, olives, and red onions.", ImageUrl = "" },
+        new Pizza { Id = 7, Name = "Quattro Formaggi", Price = 14.50m, Description = "Combination of mozzarella, gorgonzola, parmesan, and fontina.", ImageUrl = ""},
+        new Pizza { Id = 8, Name = "Capricciosa", Price = 13.00m, Description = "Classic Italian pizza with mozzarella, ham, mushrooms and artichokes.", ImageUrl = ""}
     );
 
 
