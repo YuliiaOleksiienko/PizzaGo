@@ -27,7 +27,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // Добавь это перед app.UseRouting()
+app.UseStaticFiles(); 
 app.UseRouting();
 
 app.UseSwagger();
