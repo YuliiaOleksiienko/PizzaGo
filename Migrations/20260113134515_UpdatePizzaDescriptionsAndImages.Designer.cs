@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PizzaGo.Data;
@@ -11,9 +12,11 @@ using PizzaGo.Data;
 namespace PizzaGo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260113134515_UpdatePizzaDescriptionsAndImages")]
+    partial class UpdatePizzaDescriptionsAndImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,9 +147,9 @@ namespace PizzaGo.Migrations
                         new
                         {
                             Id = 6,
-                            Description = "A rustic mix of savory salami, fresh mushrooms, and black olives.",
+                            Description = "A vegetarian delight with sliced mushrooms, black olives, and pepperoni for a salty kick.",
                             ImageUrl = "/images/pizzas/pexels-roman-odintsov-5903178.jpg",
-                            Name = "Hunter's Pizza",
+                            Name = "Mushroom & Olive",
                             Price = 12.00m
                         },
                         new
