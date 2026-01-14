@@ -17,7 +17,9 @@ namespace PizzaGo.Services
 
         public async Task<IEnumerable<PizzaResponse>> GetAllPizzasAsync()
         {
-            var pizzasFromDb = await _context.Pizzas.ToListAsync();
+            var pizzasFromDb = await _context.Pizzas
+            .OrderBy(p => p.Id)
+            .ToListAsync();
 
             var response = pizzasFromDb.Select(p => new PizzaResponse
             {
