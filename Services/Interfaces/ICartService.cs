@@ -1,3 +1,4 @@
+using PizzaGo.DTOs.Responses;
 using PizzaGo.Models;
 
 namespace PizzaGo.Services.Interfaces
@@ -5,7 +6,7 @@ namespace PizzaGo.Services.Interfaces
     public interface ICartService
     {
         Task AddToCartAsync(int pizzaId, int quantity);
-        Task<IEnumerable<OrderDetail>> GetCartItemsAsync();
+        Task<IEnumerable<CartItemResponse>> GetCartItemsAsync();
         Task<decimal> GetTotalAmountAsync();
         Task ClearCartAsync();
     }
