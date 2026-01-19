@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="pizzaModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="pizzaModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,13 +37,13 @@
             <form hx-post="/Cart/Add"
                   hx-target="#cart-badge"
                   hx-swap="innerHTML"
-                  onhtmx:after-request="bootstrap.Modal.getIntance(document.getElementById('pizzaModal')).hide()">
+                  hx-on::after-request="closeModal()">
 
                 <div class="modal-body">
                     <input type="hidden" name="PizzaId" id="modalPizzaId">
 
                     <div class="text-center mb-3">
-                        <span class="badge bg-secondary fs-5">Price: <span id="modalPizzaPrice">0</span> €<span>
+                        <span class="badge bg-secondary fs-5">Price: <span id="modalPizzaPrice">0</span> €</span>
                     </div>
 
                     <div class="mb-3">
@@ -67,6 +67,14 @@
             document.getElementById('modalPizzaName').innerText = name;
             document.getElementById('modalPizzaPrice').innerText = price;
 }
+
+        function closeModal(){
+            var modalElement = document.getElementById('pizzaModal');
+            var modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if(modalInstance){
+                modalInstance.hide();
+            }
+        }
 </script> 
 }
 
