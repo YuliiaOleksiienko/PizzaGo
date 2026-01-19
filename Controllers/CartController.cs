@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace PizzaGo.Controllers
 {
+    [Route("Cart")]
     public class CartController : Controller
     {
         private readonly ICartService _cartService;
@@ -14,7 +15,7 @@ namespace PizzaGo.Controllers
             _cartService = cartService;
         }
 
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<IActionResult> Add([FromForm] AddToCartRequest request)
         {
             if (request.Quantity <= 0)
