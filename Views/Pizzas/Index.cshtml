@@ -14,15 +14,60 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                 <span style="font-weight: bold; font-size: 1.2em; color: #040a06;">@pizza.Price.ToString("F2") €</span>
 
-                <button hx-get="api/orders/modal/@pizza.Id"
-                        hx-target="body"
-                        hx-swap="beforeend"
-                        class="btn btn-danger"
-                        style="cursor: pointer;">
-                    Order Now
+                <button class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#pizzaModal"
+                    onclick="prepareModal(@pizza.Id, '@pizza.Name', @pizza.Price.ToString(System.Globalization.CultureInfo.InvariantCulture))">
+                  Order Now
                 </button>
             </div>
         </div>
     }
     </div>
 </div>
+
+<div class="modal fade" id="pizzaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPizzaName">Pizza Name</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form hx-post="/Cart/Add"
+                  hx-target="#cart-badge"
+                  hx-swap="innerHTML"
+                  onhtmx:after-request="bootstrap.Modal.getIntance(document.getElementById('pizzaModal')).hide()">
+
+                <div class="modal-body">
+                    <input type="hidden" name="PizzaId" id="modalPizzaId">
+
+                    <div class="text-center mb-3">
+                        <span class="badge bg-secondary fs-5">Price: <span id="modalPizzaPrice">0</span> €<span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">How many?</label>
+                        <input type="number" name="Quantity" class="form-control" value="1" min="1">
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function prepareModal(id, name, price){
+            document.getElementById('modalPizzaId').value = id;
+            document.getElementById('modalPizzaName').innerText = name;
+            document.getElementById('modalPizzaPrice').innerText = price;
+}
+</script> 
+}
+
+
