@@ -9,5 +9,6 @@ namespace PizzaGo.Services.Interfaces
         Task<IEnumerable<CartItemResponse>> GetCartItemsAsync();
         Task<decimal> GetTotalAmountAsync();
         Task ClearCartAsync();
+        Task<CartPageResponse> GetCartPageModelAsync();
     }
 }

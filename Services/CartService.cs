@@ -72,5 +72,24 @@ namespace PizzaGo.Services
             var json = JsonSerializer.Serialize(cart);
             _httpContextAccessor.HttpContext?.Session.SetString(CartSessionKey, json);
         }
+
+        public async Task<CartPageResponse> GetCartPageModelAsync()
+        {
+            var cartItems = await GetCartItemsAsync();
+            var total = await GetTotalAmountAsync();
+
+            return new CartPageResponse
+            {
+                GrandTotal = total,
+                Items = cartItems.Select(x => new CartItemDto
+                {
+                    PizzaId = x.Pizza.Id,
+                    Name = x.Pizza.Name,
+                    ImageUrl = x.Pizza.ImageUrl,
+                    Price = x.Pizza.Price,
+                    Quantity = x.Quantity
+                }).ToList()
+            };
+        }
     }
 }
