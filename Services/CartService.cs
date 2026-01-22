@@ -81,7 +81,7 @@ namespace PizzaGo.Services
             return new CartPageResponse
             {
                 GrandTotal = total,
-                Items = cartItems.Select(x => new CartItemDto
+                Items = cartItems.Select(x => new CartItemDTO
                 {
                     PizzaId = x.Pizza.Id,
                     Name = x.Pizza.Name,
