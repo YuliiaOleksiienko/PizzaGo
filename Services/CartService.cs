@@ -91,5 +91,16 @@ namespace PizzaGo.Services
                 }).ToList()
             };
         }
+
+        public async Task RemoveFromCartAsync(int pizzaId)
+        {
+            var cart = (await GetCartItemsAsync()).ToList();
+            var itemToRemove = cart.FirstOrDefault(x => x.Pizza.Id == pizzaId);
+            if (itemToRemove !=null)
+            {
+                cart.Remove(itemToRemove);
+                SaveCartToSession(cart);
+            }
+        }
     }
 }

@@ -40,7 +40,11 @@
                                         </td>
                                         <td class="fw-bold">@item.SubTotal.ToString("F2") €</td>
                                         <td class="text-end pe-4">
-                                            <button class="btn btn-sm btn-outline-secondary opacity-50"><i class="bi bi-trash"></i></button>
+                                            <form asp-controller="CartPage" asp-action="Remove" asp-route-id="@item.PizzaId" method="post">
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i> Delate
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 }

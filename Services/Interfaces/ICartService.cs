@@ -10,5 +10,7 @@ namespace PizzaGo.Services.Interfaces
         Task<decimal> GetTotalAmountAsync();
         Task ClearCartAsync();
         Task<CartPageResponse> GetCartPageModelAsync();
+        Task RemoveFromCartAsync(int pizzaId);
+
     }
 }

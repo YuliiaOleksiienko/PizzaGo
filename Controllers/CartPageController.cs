@@ -20,5 +20,12 @@ namespace PizzaGo.Controllers
 
 
             }
+
+            [HttpPost]
+            public async Task<IActionResult> Remove(int id)
+            {
+                await _cartService.RemoveFromCartAsync(id);
+                return RedirectToAction("Index");
+            }
         }
 }
