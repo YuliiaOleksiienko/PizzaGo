@@ -18,6 +18,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IPizzaService, PizzaService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<ICheckoutService, CheckoutService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -38,6 +39,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
 })
+
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>();
 
