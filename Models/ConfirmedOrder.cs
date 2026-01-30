@@ -19,4 +19,4 @@ namespace PizzaGo.Models
         public List<OrderDetail> OrderDetails { get; set; } = new();
 
     }
-}
+} 

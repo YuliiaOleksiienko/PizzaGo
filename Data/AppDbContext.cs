@@ -14,6 +14,8 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<OrderDetail> OrderDetails { get; set;}
 
+    public DbSet<ConfirmedOrder> ConfirmedOrders { get; set;}
+
 
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {

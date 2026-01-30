@@ -3,8 +3,8 @@ namespace PizzaGo.Models;
 public class OrderDetail
 {
     public int id { get; set; }
-    public int OrderId { get; set; }
-    public Order Order { get; set; } = null!;
+    public int? OrderId { get; set; }
+    public Order? Order { get; set; } = null!;
 
     public int? ConfirmedOrderId { get; set; }
     public ConfirmedOrder? ConfirmedOrder { get; set; }
