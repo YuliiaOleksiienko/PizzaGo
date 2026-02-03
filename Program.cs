@@ -5,6 +5,8 @@ using PizzaGo.Services.Interfaces;
 using PizzaGo.Models;
 using Microsoft.AspNetCore.Identity;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -42,6 +44,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
 
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.ConfigureApplicationCookie(option =>
+{
+    option.LoginPath = "/Identity/Account/Login";
+});
 
 
 var app = builder.Build();

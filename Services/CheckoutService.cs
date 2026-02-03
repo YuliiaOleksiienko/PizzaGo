@@ -25,7 +25,7 @@ namespace PizzaGo.Services
             {
                 UserId = userId,
                 TotalAmount = cartData.GrandTotal,
-                CreatAt = DateTime.Now,
+                CreatAt = DateTime.UtcNow,
                 Status = "Pending"
             };
 
