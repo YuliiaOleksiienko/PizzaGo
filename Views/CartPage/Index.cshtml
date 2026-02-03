@@ -72,9 +72,11 @@
                             <span class="h5 fw-bold text-danger">@Model.GrandTotal.ToString("F2") €</span>
                             </div>
 
-                            <button class="btn btn-danger btn-lg w-100 shadow-sm shadow-danger">
+                        <form asp-controller="Checkout" asp-action="ConfirmOrder" method="post">
+                            <button type="submit" class="btn btn-danger btn-lg w-100 shadow-sm shadow-danger">
                                 Checkout & Order Now
                             </button>
+                        </form>
                         </div>
                     </div>
                 </div>
