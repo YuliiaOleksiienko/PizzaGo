@@ -38,7 +38,12 @@
                                                 <span class="fw-bold">@item.Name</span>
                                             </div>
                                         </td>
-                                        <td class="fw-bold">@item.SubTotal.ToString("F2") €</td>
+                                        <td class="fw-bold">@item.Price.ToString("F2") €</td>
+                                        <td class="text-center">
+                                            <span class="badge bg-secondary">@item.Quantity</span>
+                                        </td>
+                                        <td class="fw-bold text-primary">@item.SubTotal.ToString("F2") €</td>
+
                                         <td class="text-end pe-4">
                                             <form asp-controller="CartPage" asp-action="Remove" asp-route-id="@item.PizzaId" method="post">
                                                 <button type="submit" class="btn btn-sm btn-outline-danger">
