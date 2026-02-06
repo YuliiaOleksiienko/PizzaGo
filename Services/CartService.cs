@@ -102,5 +102,27 @@ namespace PizzaGo.Services
                 SaveCartToSession(cart);
             }
         }
+
+
+        public async Task UpdateQuantityAsync(int pizzaId, int change)
+        {
+            var cart = (await GetCartItemsAsync()).ToList();
+            var item = cart.FirstOrDefault(x => x.Pizza.Id == pizzaId);
+
+            if (item != null)
+            {
+                item.Quantity += change;
+
+                if (item.Quantity <= 0)
+                {
+                    cart.Remove(item);
+                }
+
+                SaveCartToSession(cart);
+            }
+        }
+
     }
 }
+    
+

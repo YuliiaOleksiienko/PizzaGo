@@ -29,5 +29,14 @@ namespace PizzaGo.Controllers
             var totalCount = items.Sum(x => x.Quantity);
             return Ok(totalCount);
         }   
+
+        [HttpPost("UpdateQuantity")]
+        public async Task<IActionResult> UpdateQuantity([FromForm] int id, [FromForm] int change)
+        {
+            await _cartService.UpdateQuantityAsync(id, change);
+
+            return RedirectToAction("Index", "CartPage");
+        }
+
     }
 }
