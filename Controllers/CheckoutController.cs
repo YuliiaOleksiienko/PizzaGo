@@ -8,6 +8,7 @@ using System.Security.Claims;
 namespace PizzaGo.Controllers
 {
     [Authorize]
+    [Route("Checkout")]
     public class CheckoutController : Controller
     {
         private readonly ICheckoutService _checkoutService;
@@ -23,7 +24,7 @@ namespace PizzaGo.Controllers
         }
 
     
-    [HttpPost]
+    [HttpPost("ConfirmOrder")]
     public async Task<IActionResult>ConfirmOrder()
     {
         var userId = _userManager.GetUserId(User);
